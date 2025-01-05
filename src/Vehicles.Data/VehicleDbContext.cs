@@ -4,11 +4,8 @@ using Vehicles.Domain;
 
 namespace Vehicles.Data;
 
-public class VehicleDbContext : DbContext
+public class VehicleDbContext(DbContextOptions<VehicleDbContext> options) : DbContext(options)
 {
-    public VehicleDbContext(DbContextOptions<VehicleDbContext> options) : base(options)
-    {}
-
     public DbSet<Vehicle> Vehicles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

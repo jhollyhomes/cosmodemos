@@ -1,6 +1,6 @@
-﻿namespace Vehicles.Domain;
+﻿namespace Vehicles.Contracts;
 
-public class Vehicle
+public class CreateVehicleResponse
 {
     public string Uid { get; set; }
     public string Vrm { get; set; }
@@ -8,3 +8,4 @@ public class Vehicle
     public string Model { get; set; }
     public string Colour { get; set; }
 }
+
