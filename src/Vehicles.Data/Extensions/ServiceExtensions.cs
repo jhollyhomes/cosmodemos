@@ -16,7 +16,7 @@ public static class ServiceExtensions
         var connectionString = configuration.GetConnectionString("VehiclesCosmoDb");
         ArgumentException.ThrowIfNullOrWhiteSpace(connectionString, Constants.ErrorMessages.VehicleCosmoDbConnectionStringIsNull);
 
-       services.AddDbContext<VehicleDbContext>(o =>
+       services.AddDbContextFactory<VehicleDbContext>(o =>
        {
            o.UseCosmos(
                connectionString: connectionString,

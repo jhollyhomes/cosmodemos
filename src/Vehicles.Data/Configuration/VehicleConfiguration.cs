@@ -7,6 +7,7 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
 {
     public void Configure(EntityTypeBuilder<Vehicle> builder)
     {
+        builder.HasNoDiscriminator();
         builder.ToContainer("VehiclesList");
         builder.HasKey(x => x.Uid);
     }
