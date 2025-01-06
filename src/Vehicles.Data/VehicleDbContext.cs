@@ -13,4 +13,3 @@ public class VehicleDbContext(DbContextOptions<VehicleDbContext> options) : DbCo
         modelBuilder.ApplyConfiguration(new VehicleConfiguration());
     }
 }
-

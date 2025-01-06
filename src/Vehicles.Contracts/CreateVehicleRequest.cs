@@ -1,10 +1,10 @@
 ﻿namespace Vehicles.Contracts;
 
-public class CreateVehicleRequest()
+public class CreateVehicleRequest(string colour, string model, string make, string vrm)
 {
-    public string Vrm { get; set; }
-    public string Make { get; set; }
-    public string Model { get; set; }
-    public string Colour { get; set; }
+    public string Vrm { get; set; } = vrm;
+    public string Make { get; set; } = make;
+    public string Model { get; set; } = model;
+    public string Colour { get; set; } = colour;
 }
 

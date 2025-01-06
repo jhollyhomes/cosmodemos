@@ -1,4 +1,6 @@
-﻿namespace Vehicles.Responses.Extensions;
+﻿using Vehicles.Responses.Interfaces;
+
+namespace Vehicles.Responses.Extensions;
 
 public static class ResponseExtensions
 {

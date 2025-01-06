@@ -1,4 +1,6 @@
-﻿namespace Vehicles.Responses;
+﻿using Vehicles.Responses.Interfaces;
+
+namespace Vehicles.Responses;
 
 public class SuccessResponse<T> : IResponse<T>
 {
@@ -15,6 +17,7 @@ public class SuccessResponse<T> : IResponse<T>
     public bool IsSuccess { get; }
     public bool IsNotFound { get; } = false;
     public bool IsExceptionFailure { get; } = false;
+    public bool IsValidationFailure { get; } = false;
     public T? Data { get; }
     public string Error { get; } = string.Empty;
 }

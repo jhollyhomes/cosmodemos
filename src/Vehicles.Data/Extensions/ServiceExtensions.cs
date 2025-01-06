@@ -12,9 +12,21 @@ public static class ServiceExtensions
                                                 IHostEnvironment hostEnvironment)
     {
         services.AddScoped<VehicleRepository>();
-        services.AddDbContext<VehicleDbContext>(o =>
-        {
-            o.UseCosmos("", "", databaseName: "databaseName");
-        });
+
+        var connectionString = configuration.GetConnectionString("VehiclesCosmoDb");
+        ArgumentException.ThrowIfNullOrWhiteSpace(connectionString, Constants.ErrorMessages.VehicleCosmoDbConnectionStringIsNull);
+
+       services.AddDbContext<VehicleDbContext>(o =>
+       {
+           o.UseCosmos(
+               connectionString: connectionString,
+               databaseName: Constants.DatabaseSettings.DatabaseName,
+               cosmosOptionsAction: options =>
+               {
+                   options.ConnectionMode(Microsoft.Azure.Cosmos.ConnectionMode.Direct);
+                   options.MaxRequestsPerTcpConnection(16);
+                   options.MaxTcpConnectionsPerEndpoint(32);
+               });
+       });
     }
 }

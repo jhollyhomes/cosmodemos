@@ -1,4 +1,6 @@
-﻿namespace Vehicles.Responses;
+﻿using Vehicles.Responses.Interfaces;
+
+namespace Vehicles.Responses;
 public class NotFoundResponse<T> : IResponse<T>
 {
     public NotFoundResponse(string message)
@@ -10,6 +12,7 @@ public class NotFoundResponse<T> : IResponse<T>
     public bool IsSuccess { get; } = false;
     public bool IsNotFound { get; }
     public bool IsExceptionFailure { get; } = false;
+    public bool IsValidationFailure { get; } = false;
     public T? Data { get; } = default!;
     public string Error { get; }
 }

@@ -1,5 +1,6 @@
 ﻿using Vehicles.Domain;
 using Vehicles.Responses;
+using Vehicles.Responses.Interfaces;
 
 namespace Vehicles.Data.Repositorys;
 
