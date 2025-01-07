@@ -28,7 +28,19 @@ public class VehicleService(VehicleRepository repository)
             return result.ReturnFailedResponse<Vehicle, CreateVehicleResponse>();
         }
         
-        return new SuccessResponse<CreateVehicleResponse?>(result.Data.MapTo());
+        return new SuccessResponse<CreateVehicleResponse?>(result.Data.MapToCreateVehicleResponse());
+    }
+
+    public async Task<IResponse<VehicleResponse?>> GetVehicle(string uid)
+    {
+        var result = await repository.Get(uid);
+
+        if (!result.IsSuccess)
+        {
+            return result.ReturnFailedResponse<Vehicle, VehicleResponse>();
+        }
+
+        return new SuccessResponse<VehicleResponse?>(result.Data.MapToVehicleResponse());
     }
 }
 

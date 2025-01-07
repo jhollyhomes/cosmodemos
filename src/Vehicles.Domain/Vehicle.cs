@@ -2,9 +2,9 @@
 
 public class Vehicle
 {
-    public string Uid { get; set; }
-    public string Vrm { get; set; }
-    public string Make { get; set; }
-    public string Model { get; set; }
-    public string Colour { get; set; }
+    public string Uid { get; set; } = default!;
+    public string Vrm { get; set; } = default!;
+    public string Make { get; set; } = default!;
+    public string Model { get; set; } = default!;
+    public string Colour { get; set; } = default!;
 }

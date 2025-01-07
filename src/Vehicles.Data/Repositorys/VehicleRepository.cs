@@ -20,5 +20,23 @@ public class VehicleRepository(VehicleDbContext context)
             return new ExceptionResponse<Vehicle>(e);
         }
     }
-}
 
+    public async Task<IResponse<Vehicle>> Get(string uid)
+    {
+        try
+        {
+            var model = await context.Vehicles.FindAsync(uid);
+
+            if (model is null)
+            {
+                return new NotFoundResponse<Vehicle>($"vehicle with id {uid} not found");
+            }
+
+            return new SuccessResponse<Vehicle>(model);
+        }
+        catch (Exception e)
+        {
+            return new ExceptionResponse<Vehicle>(e);
+        }
+    }
+}
