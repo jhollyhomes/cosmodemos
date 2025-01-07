@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Vehicles.Responses.Interfaces;
+﻿using Vehicles.Responses.Interfaces;
 
 namespace Vehicles.Api.Extensions;
 
